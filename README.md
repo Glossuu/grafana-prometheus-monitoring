@@ -107,6 +107,31 @@ Verify that metrics are available:
 
 curl -s http://localhost:9100/metrics | head
 
+#### Restrict access to Node Exporter
+
+Node Exporter should only accept connections from the monitoring host.
+Do not expose port 9100 directly to the public internet.
+
+For this lab, the remote VM uses UFW with the following rules.
+Replace the example addresses and SSH access rule to match your environment.
+
+```bash
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+# Allow SSH from the trusted local network
+sudo ufw allow from 192.168.0.0/24 to any port 22 proto tcp
+
+# Allow Node Exporter access only from the monitoring VM
+sudo ufw allow from 192.168.0.124 to any port 9100 proto tcp
+
+sudo ufw enable
+sudo ufw status verbose
+```
+
+Verify that Prometheus can still scrape the remote target at
+`<REMOTE_VM_IP>:9100` and that its target status remains `UP`.
+
 2. Configure Prometheus
 
 Edit prometheus/prometheus.yml and replace the example remote IP with the address of your remote Linux VM.
