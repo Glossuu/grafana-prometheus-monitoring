@@ -172,3 +172,26 @@ Pin container image versions
 Add dashboard screenshots and an architecture diagram
 
 Document backup and restore procedures
+
+## Dashboard Screenshots
+
+### Linux Server Monitoring
+
+The main dashboard provides an overview of CPU, memory, disk, network,
+uptime, and normalized load metrics across both Linux hosts.
+
+![Linux Server Monitoring - Part 1](docs/screenshots/linux-server-monitoring_1.png)
+![Linux Server Monitoring - Part 2](docs/screenshots/linux-server-monitoring_2.png)
+![Linux Server Monitoring - Part 3](docs/screenshots/linux-server-monitoring_3.png)
+### Server Details
+
+The detailed dashboard provides a closer view of an individual Linux host.
+
+![Server Details - Part 1](docs/screenshots/server-details_1.png)
+![Server Details - Part 2](docs/screenshots/server-details_2.png)
+![Server Details - Part 3](docs/screenshots/server-details_3.png)
+## Architecture Diagram
+
+See [the monitoring architecture](docs/architecture.md) for the component
+diagram and an explanation of how Grafana, Prometheus, and Node Exporter
+communicate.
