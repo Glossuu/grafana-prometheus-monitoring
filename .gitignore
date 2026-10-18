@@ -1,0 +1,26 @@
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Private keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Logs and temporary files
+*.log
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Local monitoring data
+prometheus/data/
+prometheus/tsdb/
+grafana/data/
+
+# Backups
+*.bak
+*.backup
