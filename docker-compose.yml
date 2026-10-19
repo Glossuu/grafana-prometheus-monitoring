@@ -5,7 +5,7 @@ services:
     container_name: prometheus
     restart: unless-stopped
     ports:
-      - "192.168.0.124:9090:9090"
+      - "${MONITORING_HOST_IP}:9090:9090"
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - prometheus_data:/prometheus
@@ -30,7 +30,7 @@ services:
     container_name: grafana
     restart: unless-stopped
     ports:
-      - "192.168.0.124:3000:3000"
+      - "${MONITORING_HOST_IP}:3000:3000"
     volumes:
       - grafana_data:/var/lib/grafana
 

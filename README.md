@@ -140,6 +140,21 @@ The scrape configuration should contain both the local Node Exporter target and 
 
 3. Validate and start the monitoring stack
 
+Before starting the stack for the first time, create a local environment file:
+
+```bash
+cp .env.example .env
+nano .env
+```
+
+Set `MONITORING_HOST_IP` to the LAN IP address of the VM running Grafana and Prometheus.
+
+The `.env` file contains local settings and is intentionally excluded from Git.
+Do not commit it. Each deployment should create its own `.env` from `.env.example`.
+
+The remote Node Exporter address must also be configured in
+`prometheus/prometheus.yml` before starting the stack.
+
 From the repository directory, run:
 
 docker compose config -q
